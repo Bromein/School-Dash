@@ -1,23 +1,3 @@
-<!--
-*** Thanks for checking out this README Template. If you have a suggestion that would
-*** make this better, please fork the repo and create a pull request or simply open
-*** an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
-***
-***
-***
-*** To avoid retyping too much info. Do a search and replace for the following:
-*** github_username, repo, twitter_handle, email
--->
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-<!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <!-- <a href="https://github.com/bromein/repo">
@@ -60,7 +40,7 @@
 
 ## About The Project
 
-[![School Dash Screen Shot][product-screenshot]](https://example.com)
+Screenshot coming soon.
 
 ### Built With
 
@@ -126,15 +106,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@AJBroman](https://twitter.com/ajbroman)
-
-Project Link: [https://github.com/bromein/repo](https://github.com/bromein/repo)
+[@AJBroman](https://twitter.com/ajbroman)
+[https://github.com/bromein/repo](https://github.com/bromein/repo)
 
 ## Acknowledgements
 
 - [Netlify]()
-- []()
-- []() -->
 
 <!-- [contributors-shield]: https://img.shields.io/github/contributors/bromein/repo/svg?style=flat-square
 [contributors-url]: https://github.com/bromein/repo/graphs/contributors
