@@ -14,7 +14,7 @@ const Router = () => {
     <BrowserRouter>
       <GlobalStyle />
       <Switch>
-        <PrivateRoute exact path="/" component={App} />
+        <PrivateRoute path="/" component={App} />
         <Route exact path="/login" component={LogIn} />
         <Route exact component={NotFound} />
       </Switch>

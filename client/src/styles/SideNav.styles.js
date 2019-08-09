@@ -8,35 +8,44 @@ export const SideNavContainer = styled.aside`
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  left: 0;
+  transition: all 0.2s ease-in-out;
 
   @media (max-width: 800px) {
-    display: none;
+    position: absolute;
+    left: -24rem;
   }
 
   p {
     font-family: PlayfairDisplay;
     font-size: 2rem;
-    text-transform: uppercase;
+
     padding: 1rem;
     text-align: center;
   }
 
   li {
+    a {
+      color: #ebebeb;
+      flex: 1;
+    }
     border-radius: 4px;
+    text-transform: uppercase;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0.5rem;
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
     svg {
       width: 2rem;
       margin-right: 1rem;
       fill: #ebebeb
       &:hover {
       }
+    }
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
     }
   }
 

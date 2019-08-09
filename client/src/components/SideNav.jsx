@@ -1,6 +1,8 @@
 import React from "react";
-
+import { Link, Route } from "react-router-dom";
 import { SideNavContainer } from "../styles/SideNav.styles";
+import StaffPage from "../pages/StaffPage";
+
 import { ReactComponent as Budget } from "../assets/icons/budget.svg";
 import { ReactComponent as Stats } from "../assets/icons/stats.svg";
 import { ReactComponent as Staff } from "../assets/icons/staff.svg";
@@ -12,19 +14,19 @@ const SideNav = () => {
       <ul>
         <li>
           <Dash />
-          Dashboard
+          <Link to="/dash">Dashboard</Link>
         </li>
         <li>
           <Staff />
-          Staff
+          <Link to="/staff">Staff</Link>
         </li>
         <li>
           <Budget />
-          Budget
+          <Link to="/budget">Budget</Link>
         </li>
         <li>
           <Stats />
-          Stats
+          <Link to="/stats">Stats</Link>
         </li>
       </ul>
       <span>Upgrade to pro</span>
