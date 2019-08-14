@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import SourceSansPro from "../assets/fonts/SourceSansPro-Regular.ttf";
-import PlayfairDisplay from "../assets/fonts/PlayfairDisplay-Regular.ttf";
+import Montserrat from "../assets/fonts/Montserrat-SemiBold.ttf";
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -10,10 +10,22 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
   @font-face {
-    font-family: PlayfairDisplay;
-    src: url(${PlayfairDisplay}) format('truetype');
-    font-weight: normal;
+    font-family: Montserrat;
+    src: url(${Montserrat}) format('truetype');
+    font-weight: 600;
     font-style: normal;
+  }
+
+  * {
+    ::-webkit-scrollbar {
+    width: 0.2rem;
+    border-radius: 100px;
+    background-color: ${props => props.theme.darkestGray};
+
+    &-thumb {
+      background-color: ${props => props.theme.accentRed};
+    }
+  }
   }
   html {
     box-sizing: border-box;
@@ -34,6 +46,6 @@ export const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
-    color: #393939;
+    color: ${props => props.theme.linkColor};
   }
 `;

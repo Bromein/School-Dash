@@ -1,11 +1,14 @@
 import React from "react";
-import { StyledStatsPage } from "../styles/StatsPage.styles";
+import { StyledDashPage } from "../styles/DashboardPage.styles";
+import { CTX } from "../context/Store";
 
 const StatsPage = () => {
+  const [state, doAction] = React.useContext(CTX);
+
   return (
-    <StyledStatsPage>
+    <StyledDashPage sidebar={state.sidebar}>
       <h1>Stats Page</h1>
-    </StyledStatsPage>
+    </StyledDashPage>
   );
 };
 export default StatsPage;

@@ -1,12 +1,14 @@
 import React from "react";
 
-import { StyledBudgetPage } from "../styles/BudgetPage.styles";
+import { StyledDashPage } from "../styles/DashboardPage.styles";
+import { CTX } from "../context/Store";
 
 const BudgetPage = () => {
+  const [state, doAction] = React.useContext(CTX);
   return (
-    <StyledBudgetPage>
+    <StyledDashPage sidebar={state.sidebar}>
       <h1>Budget Page</h1>
-    </StyledBudgetPage>
+    </StyledDashPage>
   );
 };
 export default BudgetPage;

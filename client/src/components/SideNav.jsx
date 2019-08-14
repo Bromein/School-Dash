@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Route } from "react-router-dom";
-import { SideNavContainer } from "../styles/SideNav.styles";
-import StaffPage from "../pages/StaffPage";
 
 import { ReactComponent as Budget } from "../assets/icons/budget.svg";
 import { ReactComponent as Stats } from "../assets/icons/stats.svg";
 import { ReactComponent as Staff } from "../assets/icons/staff.svg";
 import { ReactComponent as Dash } from "../assets/icons/dashboard.svg";
+import Logo from "../assets/icons/logo.png";
+
+import { CTX } from "../context/Store";
+import { SideNavContainer } from "../styles/SideNav.styles";
+
 const SideNav = () => {
+  const [state, doAction] = useContext(CTX);
+
   return (
-    <SideNavContainer>
-      <p>School Dash</p>
+    <SideNavContainer sidebar={state.sidebar}>
+      <p>
+        <img src={Logo} alt={"Dashr Logo"} />
+      </p>
+
       <ul>
         <li>
           <Dash />
@@ -29,7 +37,9 @@ const SideNav = () => {
           <Link to="/stats">Stats</Link>
         </li>
       </ul>
-      <span>Upgrade to pro</span>
+      <div>
+        <p>Upgrade To Pro</p>
+      </div>
     </SideNavContainer>
   );
 };

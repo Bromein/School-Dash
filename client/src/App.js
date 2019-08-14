@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Route, Switch } from "react-router-dom";
-
+import { ThemeProvider } from "styled-components";
 import PrivateRoute from "./components/PrivateRoute";
 import SideNav from "./components/SideNav";
 import TopNav from "./components/TopNav";
@@ -12,30 +12,34 @@ import StaffPage from "./pages/StaffPage";
 import BudgetPage from "./pages/BudgetPage";
 import StatsPage from "./pages/StatsPage";
 import { GlobalStyle } from "./styles/GlobalStyle";
+import { theme } from "./styles/theme";
+
 import { GridWrap } from "./styles/App.styles";
+import Store from "./context/Store";
 
 function App(props) {
-  const [sideBarStatus, setSideBarStatus] = useState(true);
-
-  const toggleSideBar = () => {
-    setSideBarStatus(!sideBarStatus);
-  };
+  const toggleSideBar = () => {};
 
   return (
-    <GridWrap>
-      <GlobalStyle />
-      {sideBarStatus && <SideNav />}
-      <TopNav toggleSideBar={toggleSideBar} />
-      <Switch>
-        <PrivateRoute exact path="/" component={DashboardPage} />
-        <PrivateRoute exact path="/staff" component={StaffPage} />
-        <PrivateRoute exact path="/dash" component={DashboardPage} />
-        <PrivateRoute exact path="/budget" component={BudgetPage} />
-        <PrivateRoute exact path="/stats" component={StatsPage} />
-        <Route exact path="/login" component={LogIn} />
-        <Route exact component={NotFound} />
-      </Switch>
-    </GridWrap>
+    <ThemeProvider theme={theme}>
+      <Store>
+        <GridWrap>
+          <GlobalStyle />
+          {/* {sideBarStatus && <SideNav />} */}
+          <SideNav />
+          <TopNav toggleSideBar={toggleSideBar} />
+          <Switch>
+            <PrivateRoute exact path="/" component={DashboardPage} />
+            <PrivateRoute exact path="/staff" component={StaffPage} />
+            <PrivateRoute exact path="/dash" component={DashboardPage} />
+            <PrivateRoute exact path="/budget" component={BudgetPage} />
+            <PrivateRoute exact path="/stats" component={StatsPage} />
+            <Route exact path="/login" component={LogIn} />
+            <Route exact component={NotFound} />
+          </Switch>
+        </GridWrap>
+      </Store>
+    </ThemeProvider>
   );
 }
 
