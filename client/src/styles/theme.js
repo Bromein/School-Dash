@@ -12,6 +12,7 @@ export const theme = {
   accentRedFaded: "rgba(255, 68, 149, 0.1)",
   accentGreen: "#52e3c2",
   accentBlue: "#0781ff",
+  accentOrange: "#ed8a19",
   accentPurple: "#d211fe",
   accentLightBlue: "#40c4ff",
 };

@@ -23,6 +23,8 @@ export const CardTitle = styled.header`
 `;
 
 export const CardContent = styled.section`
+  align-self: center;
+  justify-self: center;
   grid-column: 1 / -1;
 `;
 export const CardFooter = styled.footer`

@@ -1,22 +1,26 @@
 import React from "react";
-
-const EmployeeCard = () => {
+import { StyledEmployeeCard, ActionBar } from "../styles/EmployeeCard.styles";
+import { ReactComponent as Delete } from "../assets/icons/trash.svg";
+import { ReactComponent as Edit } from "../assets/icons/pencil.svg";
+const EmployeeCard = ({
+  employee: { name, position, age, hireDate, skills, salary },
+}) => {
   return (
-    <div>
-      <h1>Employees</h1>
+    <StyledEmployeeCard>
+      <ActionBar>
+        <Edit className="edit" />
+        <Delete className="delete" />
+      </ActionBar>
+      <h1>{name}</h1>
+      <h2>{position}</h2>
+      <h3>Hired on: {hireDate}</h3>
       <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
+        {skills.map(skill => (
+          <li>{skill}</li>
+        ))}
       </ul>
-    </div>
+      <h3>salary: {salary / 1000.0}k</h3>
+    </StyledEmployeeCard>
   );
 };
 

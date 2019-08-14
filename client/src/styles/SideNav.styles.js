@@ -9,7 +9,6 @@ export const SideNavContainer = styled.aside`
     props.sidebar
       ? "display: flex; position: relative; left: 0;"
       : "position: absolute; left: -24rem;"};
-  /* display: flex; */
   flex-direction: column;
   padding: 1rem;
   border-right: 1px solid ${props => props.theme.lightestGray};
