@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  StyledCard,
-  CardTitle,
-  CardContent,
-  CardFooter,
-} from "../styles/Card.styles";
+import { StyledCard, CardTitle, CardContent, CardFooter } from "./Card.styles";
 
 const Card = ({ ...props }) => {
   return (

@@ -3,6 +3,7 @@ import { StyledTopNav } from "../styles/TopNav.styles";
 import { ReactComponent as MenuButton } from "../assets/icons/menu.svg";
 import { ReactComponent as Notifications } from "../assets/icons/notification.svg";
 import { ReactComponent as Avatar } from "../assets/icons/avatar.svg";
+import Weather from "./Weather/Weather";
 
 import { CTX } from "../context/Store";
 
@@ -23,6 +24,7 @@ const TopNav = () => {
       <div>
         <input placeholder="Search" type="search" name="" id="" />
       </div>
+      <Weather />
       <div className="profile-buttons">
         <Notifications className="notification" />
         <Avatar />

@@ -1,7 +1,7 @@
 export const employeeData = [
   {
     name: "Samantha Welsh",
-    position: "teacher",
+    position: "Business Manager",
     age: 25,
     hireDate: "01/20/2014",
     skills: ["leadership", "annoying", "kind of cute"],
@@ -9,7 +9,7 @@ export const employeeData = [
   },
   {
     name: "AJ Broman",
-    position: "teacher",
+    position: "Teacher",
     age: 25,
     hireDate: "02/10/2016",
     skills: ["not a cook", "cool af", "cuter than sam"],
@@ -17,7 +17,7 @@ export const employeeData = [
   },
   {
     name: "Denice Hargan",
-    position: "teacher",
+    position: "Director",
     age: 35,
     hireDate: "11/24/2017",
     skills: ["leadership", "sweet", "star wars fanatic"],

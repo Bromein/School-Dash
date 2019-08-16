@@ -6,9 +6,12 @@ export const StyledDashPage = styled.div`
   display: grid;
   grid-template-rows: 3rem;
   grid-auto-rows: repeat(2, minmax(25rem, auto));
-  grid-template-columns: repeat(auto-fit, minmax(20rem, auto));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   overflow-y: scroll;
 
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(auto-fit, minmax(15%, 25%));
+  }
   @media (max-width: 800px) {
     grid-column: 1 / -1;
   }

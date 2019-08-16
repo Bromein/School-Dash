@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { ReactComponent as Budget } from "../assets/icons/budget.svg";
 import { ReactComponent as Stats } from "../assets/icons/stats.svg";
 import { ReactComponent as Staff } from "../assets/icons/staff.svg";
 import { ReactComponent as Dash } from "../assets/icons/dashboard.svg";
+import { ReactComponent as Weather } from "../assets/icons/clear-day.svg";
 import Logo from "../assets/icons/logo.png";
 
 import { CTX } from "../context/Store";
@@ -35,6 +36,10 @@ const SideNav = () => {
         <li>
           <Stats />
           <Link to="/stats">Stats</Link>
+        </li>
+        <li>
+          <Weather />
+          <Link to="/weather">Weather</Link>
         </li>
       </ul>
       <div>

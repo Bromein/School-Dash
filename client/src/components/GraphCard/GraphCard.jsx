@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledGraphCard } from "../styles/Card.styles";
+import { StyledGraphCard } from "../Card/Card.styles";
 
 const GraphCard = ({ ...props }) => {
   return (

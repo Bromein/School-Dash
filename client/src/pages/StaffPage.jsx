@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import EmployeeCard from "../components/EmployeeCard";
+import EmployeeCard from "../components/EmployeeCard/EmployeeCard";
 import { BreadCrumb } from "../styles/BreadCrumb";
 import { StyledDashPage } from "../styles/DashboardPage.styles";
 import { CTX } from "../context/Store";
 import { employeeData } from "../components/employeeData";
-import Card from "../components/Card";
+import MonthlySalaryCosts from "../components/MonthlySalaryCosts/MonthlySalaryCosts";
 
 const StaffPage = ({ match }) => {
   const [employees, setEmployees] = useState([]);
@@ -17,15 +17,7 @@ const StaffPage = ({ match }) => {
   return (
     <StyledDashPage sidebar={state.sidebar}>
       <BreadCrumb>Home{match.path}</BreadCrumb>
-      <Card full header="Monthly costs for employees">
-        <div>
-          $
-          {employeeData.reduce((accu, employee) => {
-            return accu + employee.salary / 1000;
-          }, 0)}
-          k
-        </div>
-      </Card>
+      <MonthlySalaryCosts full />
       {employeeData.map(employee => (
         <EmployeeCard key={employee.name} employee={employee} />
       ))}

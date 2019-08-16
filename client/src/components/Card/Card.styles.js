@@ -11,6 +11,10 @@ export const StyledCard = styled.div`
   box-shadow: 0.1rem 0.1rem 0.1rem 0rem rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
 
+  @media (min-width: 1000px) {
+    ${props => props.quarter && "grid-column: span 2"};
+  }
+
   &:hover {
     transform: scale(1.01);
     box-shadow: 0.2rem 0.2rem 0.5rem 0.1rem rgba(0, 0, 0, 0.15);
@@ -19,7 +23,12 @@ export const StyledCard = styled.div`
 
 export const CardTitle = styled.header`
   justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-column: 1 / -1;
+  width: 100%;
+  border-radius: 0.5rem 0.5rem 0 0;
 `;
 
 export const CardContent = styled.section`
@@ -54,4 +63,9 @@ export const StyledGraphCard = styled.div`
     width: 90%;
     flex-direction: column;
   }
+`;
+
+export const BigContent = styled.p`
+  font-size: 5rem;
+  color: ${props => props.theme.accentGreen};
 `;

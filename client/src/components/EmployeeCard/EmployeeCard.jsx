@@ -1,7 +1,7 @@
 import React from "react";
-import { StyledEmployeeCard, ActionBar } from "../styles/EmployeeCard.styles";
-import { ReactComponent as Delete } from "../assets/icons/trash.svg";
-import { ReactComponent as Edit } from "../assets/icons/pencil.svg";
+import { StyledEmployeeCard, ActionBar } from "./EmployeeCard.styles";
+import { ReactComponent as Delete } from "../../assets/icons/trash.svg";
+import { ReactComponent as Edit } from "../../assets/icons/pencil.svg";
 const EmployeeCard = ({
   employee: { name, position, age, hireDate, skills, salary },
 }) => {

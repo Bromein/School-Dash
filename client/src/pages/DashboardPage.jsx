@@ -10,9 +10,10 @@ import {
 
 import { BreadCrumb } from "../styles/BreadCrumb";
 import { StyledDashPage } from "../styles/DashboardPage.styles";
-import Card from "../components/Card";
-import GraphCard from "../components/GraphCard";
+import Card from "../components/Card/Card";
+import GraphCard from "../components/GraphCard/GraphCard";
 import { CTX } from "../context/Store";
+import MonthlySalaryCosts from "../components/MonthlySalaryCosts/MonthlySalaryCosts";
 
 const tempData2017 = [
   { quarter: 1, earnings: 13000 },
@@ -85,7 +86,7 @@ const Dashboard = ({ match }) => {
         <div>Hello from the inside</div>
         <div>Hello from the inside</div>
       </Card>
-      <Card body="Tester card" header="The Test Card" footer="Test Footer" />
+      <MonthlySalaryCosts half />
       <Card body="Tester card" header="The Test Card" footer="Test Footer" />
       <Card body="Tester card" header="The Test Card" footer="Test Footer" />
       <Card
@@ -98,6 +99,12 @@ const Dashboard = ({ match }) => {
       <Card body="Tester card" header="The Test Card" footer="Test Footer" />
       <Card body="Tester card" header="The Test Card" footer="Test Footer" />
       <Card body="Tester card" header="The Test Card" footer="Test Footer" />
+      <Card
+        quarter
+        body="Tester card"
+        header="The Test Card"
+        footer="Test Footer"
+      />
     </StyledDashPage>
   );
 };

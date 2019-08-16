@@ -4,13 +4,14 @@ import { ThemeProvider } from "styled-components";
 import PrivateRoute from "./components/PrivateRoute";
 import SideNav from "./components/SideNav";
 import TopNav from "./components/TopNav";
-import LogIn from "./components/LogIn";
+import LogIn from "./components/Login/LogIn";
 
 import NotFound from "./pages/NotFound";
 import DashboardPage from "./pages/DashboardPage";
 import StaffPage from "./pages/StaffPage";
 import BudgetPage from "./pages/BudgetPage";
 import StatsPage from "./pages/StatsPage";
+import WeatherPage from "./pages/WeatherPage";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import { theme } from "./styles/theme";
 
@@ -34,6 +35,8 @@ function App(props) {
             <PrivateRoute exact path="/dash" component={DashboardPage} />
             <PrivateRoute exact path="/budget" component={BudgetPage} />
             <PrivateRoute exact path="/stats" component={StatsPage} />
+            <PrivateRoute exact path="/stats" component={StatsPage} />
+            <PrivateRoute exact path="/weather" component={WeatherPage} />
             <Route exact path="/login" component={LogIn} />
             <Route exact component={NotFound} />
           </Switch>
