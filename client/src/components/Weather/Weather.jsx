@@ -35,8 +35,7 @@ const Weather = () => {
           {/* <Icon name="clear-day" /> */}
           <FlexColumn>
             <div>
-              {Math.ceil(state.location.currently.apparentTemperature)}º
-              <span>F</span>
+              {Math.ceil(state.location.currently.temperature)}º<span>F</span>
             </div>
             <span>{state.location.currently.summary}</span>
           </FlexColumn>

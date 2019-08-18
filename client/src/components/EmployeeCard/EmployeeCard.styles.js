@@ -32,6 +32,8 @@ export const StyledEmployeeCard = styled.div`
 
   h1 {
     padding: 1rem;
+    letter-spacing: 0.2rem;
+    font-family: OpenSansCondensed;
     font-size: 2rem;
     color: ${props => props.theme.accentRed};
   }
@@ -57,13 +59,14 @@ export const StyledEmployeeCard = styled.div`
 `;
 
 export const ActionBar = styled.div`
-  background-color: ${props => props.theme.lightestGray};
+  background-color: ${props => props.theme.darkestGray};
   border-radius: 4px 4px 0 0;
   width: 100%;
   height: 15%;
   display: flex;
   justify-content: space-between;
   .edit {
+    fill: ${props => props.theme.darkGray};
     transition: all 0.2s ease-in;
 
     &:hover {
@@ -72,6 +75,7 @@ export const ActionBar = styled.div`
   }
 
   .delete {
+    fill: ${props => props.theme.darkGray};
     transition: all 0.2s ease-in;
 
     &:hover {

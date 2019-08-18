@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import SourceSansPro from "../assets/fonts/SourceSansPro-Regular.ttf";
-import Montserrat from "../assets/fonts/Montserrat-SemiBold.ttf";
+import OpenSansCondensed from "../assets/fonts/OpenSansCondensed-Bold.ttf";
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -10,9 +10,9 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
   @font-face {
-    font-family: Montserrat;
-    src: url(${Montserrat}) format('truetype');
-    font-weight: 600;
+    font-family: OpenSansCondensed;
+    src: url(${OpenSansCondensed}) format('truetype');
+    font-weight: 700;
     font-style: normal;
   }
 

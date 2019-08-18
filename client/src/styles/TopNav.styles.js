@@ -22,6 +22,12 @@ export const StyledTopNav = styled.nav`
     }
   }
 
+  .profile-buttons {
+        @media (max-width: 415px) {
+      width: 25%;
+    }
+  }
+
   input {
     padding: 1rem;
     border-radius: 4px;
@@ -32,6 +38,8 @@ export const StyledTopNav = styled.nav`
     width: 90%;
     height: 2rem;
     transition: all 0.2s ease-in;
+
+
 
     &::placeholder {
       color: ${props => props.theme.darkGray};

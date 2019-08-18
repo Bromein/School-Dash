@@ -4,8 +4,7 @@ export const StyledDashPage = styled.div`
   padding: 0 2rem;
   grid-column: ${props => (props.sidebar ? "2 / -1" : "1 / -1")};
   display: grid;
-  grid-template-rows: 3rem;
-  grid-auto-rows: repeat(2, minmax(25rem, auto));
+  grid-template-rows: 3rem 1fr;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   overflow-y: scroll;
 

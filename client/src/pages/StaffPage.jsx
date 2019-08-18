@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import EmployeeCard from "../components/EmployeeCard/EmployeeCard";
+import AddEmployeeForm from "../components/AddEmployeeForm/AddEmployeeForm";
+
 import { BreadCrumb } from "../styles/BreadCrumb";
 import { StyledDashPage } from "../styles/DashboardPage.styles";
 import { CTX } from "../context/Store";
@@ -18,6 +20,7 @@ const StaffPage = ({ match }) => {
     <StyledDashPage sidebar={state.sidebar}>
       <BreadCrumb>Home{match.path}</BreadCrumb>
       <MonthlySalaryCosts full />
+      <AddEmployeeForm />
       {employeeData.map(employee => (
         <EmployeeCard key={employee.name} employee={employee} />
       ))}

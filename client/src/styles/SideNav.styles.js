@@ -25,7 +25,8 @@ export const SideNavContainer = styled.aside`
   }
 
   p {
-    font-family: Montserrat;
+    font-family: OpenSansCondensed;
+    letter-spacing: 0.2rem;
     font-size: 3rem;
     padding: 2rem;
     text-align: center;

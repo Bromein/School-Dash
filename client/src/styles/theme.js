@@ -1,8 +1,8 @@
 export const theme = {
-  backgroundColor: "#282833",
+  backgroundColor: "#292933",
   textColor: "#fff",
   linkColor: "#40c4ff",
-  cardColor: "#32323e",
+  cardColor: "#393945",
   darkestGray: "#282833",
   darkGray: "#32323e",
   gray: "#546e7a",
@@ -16,7 +16,6 @@ export const theme = {
   accentPurple: "#d211fe",
   accentLightBlue: "#40c4ff",
 };
-
 // --atom-red: #ff4495;
 // --atom-green: #52e3c2;
 // --atom-blue: #0781ff;

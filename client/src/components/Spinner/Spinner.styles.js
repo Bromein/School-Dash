@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const AnimatedSpinner = styled.div`
-  border: 0.2rem solid ${props => props.theme.gray};
-  border-top: 0.2rem solid ${props => props.theme.accentRed};
+  /* border: 0.2rem solid ${props => props.theme.gray}; */
+  border-top: 0.1rem solid ${props => props.theme.accentRed};
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
+
+  width: ${props => (props.big ? "20rem" : "3rem")};
+  height: ${props => (props.big ? "20rem" : "3rem")};
   animation: spin 0.5s linear infinite;
 
   @keyframes spin {

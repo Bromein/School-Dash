@@ -1,11 +1,7 @@
 import React from "react";
-import { AnimatedSpinner } from "./Spinner.styles";
+import { AnimatedSpinner, SpinWrap } from "./Spinner.styles";
 
-const Spinner = ({ display }) => {
-  return (
-    <div>
-      <AnimatedSpinner />
-    </div>
-  );
+const Spinner = ({ ...props }) => {
+  return <AnimatedSpinner {...props} />;
 };
 export default Spinner;
