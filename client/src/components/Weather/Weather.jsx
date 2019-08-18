@@ -10,15 +10,22 @@ const Weather = () => {
   useEffect(() => {
     //fetch weather from darksky and store it in state so we can use it in our weather page
     navigator.geolocation.getCurrentPosition(position => {
+      // https://cors-anywhere.herokuapp.com/
       fetch(
-        `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${
+        `https://api.darksky.net/forecast/${
           process.env.REACT_APP_DARKSKY_API
         }/${position.coords.latitude},${position.coords.longitude}`
       )
         .then(res => res.json())
         .then(data => {
-          doAction({ type: "SET_WEATHER", payload: data });
-          doAction({ type: "SET_LOADING", payload: !state.loading });
+          doAction({
+            type: "SET_WEATHER",
+            payload: data,
+          });
+          doAction({
+            type: "SET_LOADING",
+            payload: !state.loading,
+          });
           // console.log(data);
           // setLoading(false);
         });
