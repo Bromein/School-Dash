@@ -16,6 +16,7 @@ export const theme = {
   accentPurple: "#d211fe",
   accentLightBlue: "#40c4ff",
 };
+
 // --atom-red: #ff4495;
 // --atom-green: #52e3c2;
 // --atom-blue: #0781ff;

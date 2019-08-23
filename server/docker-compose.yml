@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  backend-api:
+    container_name: backend
+    # image: node:12.2.0
+    build: ./
+    command: npm start
+    working_dir: /usr/src/schooldash/server
+    ports:
+      - "5001:5001"
+    networks:
+      - default

@@ -11,6 +11,8 @@ const reducer = (state, action) => {
       return { ...state, location: action.payload };
     case types.SET_LOADING:
       return { ...state, loading: action.payload };
+    case types.SET_USER:
+      return { ...state, user: action.payload };
     default:
       return state;
   }
@@ -21,6 +23,7 @@ export default props => {
     sidebar: true,
     location: null,
     loading: true,
+    user: null
   });
 
   return <CTX.Provider value={state}>{props.children}</CTX.Provider>;

@@ -43,6 +43,7 @@ const SideNav = () => {
         </li>
       </ul>
       <div>
+        <Link to="/signup">Sign Up</Link>
         <p>Upgrade To Pro</p>
       </div>
     </SideNavContainer>

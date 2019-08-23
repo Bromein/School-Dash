@@ -17,10 +17,9 @@ import { theme } from "./styles/theme";
 
 import { GridWrap } from "./styles/App.styles";
 import Store from "./context/Store";
+import SignUp from "./pages/SignUp/SignUp";
 
 function App(props) {
-  const toggleSideBar = () => {};
-
   return (
     <ThemeProvider theme={theme}>
       <Store>
@@ -28,7 +27,7 @@ function App(props) {
           <GlobalStyle />
           {/* {sideBarStatus && <SideNav />} */}
           <SideNav />
-          <TopNav toggleSideBar={toggleSideBar} />
+          <TopNav />
           <Switch>
             <PrivateRoute exact path="/" component={DashboardPage} />
             <PrivateRoute exact path="/staff" component={StaffPage} />
@@ -38,6 +37,7 @@ function App(props) {
             <PrivateRoute exact path="/stats" component={StatsPage} />
             <PrivateRoute exact path="/weather" component={WeatherPage} />
             <Route exact path="/login" component={LogIn} />
+            <Route exact path="/signup" component={SignUp} />
             <Route exact component={NotFound} />
           </Switch>
         </GridWrap>

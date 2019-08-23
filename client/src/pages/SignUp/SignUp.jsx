@@ -1,11 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { StyledDashPage } from "../../styles/DashboardPage.styles";
-import { CTX } from "../../context/Store";
-
-const LogIn = () => {
-  const [state, doAction] = useContext(CTX);
-
+const SignUp = () => {
   const [values, setValues] = useState({
+    name: "",
     email: "",
     secret: ""
   });
@@ -16,7 +13,7 @@ const LogIn = () => {
   };
 
   const handleSubmit = () => {
-    fetch("/api/login", {
+    fetch("/api/signup", {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
@@ -24,15 +21,12 @@ const LogIn = () => {
       }
     })
       .then(res => res.json())
-      .then(data => {
-        if (data.userId) {
-          //set the user inside our context
-          doAction({ type: "SET_USER", payload: data });
-        }
-      });
+      .then(data => console.log(data));
   };
   return (
     <StyledDashPage>
+      name:
+      <input onChange={updateField} type="text" name="name" />
       email:
       <input onChange={updateField} type="email" name="email" />
       password:
@@ -42,4 +36,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default SignUp;
