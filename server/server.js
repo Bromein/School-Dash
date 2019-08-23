@@ -1,5 +1,5 @@
 const express = require("express");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const knex = require("knex");
 const app = express();
 const bodyParser = require("body-parser");
@@ -15,11 +15,8 @@ app.use(morgan("combined"));
 
 const db = knex({
   client: "pg",
-  connection: {
-    host: "127.0.0.1",
-    port: "5432",
-    database: "dashr"
-  }
+  // URI Unique resource identifier
+  connection: process.env.POSTGRES_URI
 });
 
 app.get("/api", (req, res) => {
@@ -41,10 +38,10 @@ app.post("/api/", verifyToken, (req, res) => {
   });
 });
 
-// app.post("/api/login", signin.authorizeLogin(db, bcrypt));
-app.get("/api/login", (req, res) => {
-  res.send("ITS WORKIN BOI");
-});
+app.post("/api/login", signin.authorizeLogin(db, bcrypt));
+// app.get("/api/login", (req, res) => {
+//   res.send("ITS WORKIN BOI");
+// });
 
 app.post("/api/signup", signup.handleSignUp(db, bcrypt));
 
@@ -66,5 +63,11 @@ function verifyToken(req, res, next) {
     res.sendStatus(403);
   }
 }
+
+console.table([
+  process.env.POSTGRES_HOST,
+  process.env.POSTGRES_DB,
+  process.env.POSTGRES_USER
+]);
 
 app.listen(5001, () => console.log("listening on port 5001"));

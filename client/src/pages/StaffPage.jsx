@@ -14,7 +14,6 @@ const StaffPage = ({ match }) => {
 
   const updateEmployees = employee => {
     setEmployees([...employees, { name: employee.name, age: employee.age }]);
-    console.log(employees);
   };
   return (
     <StyledDashPage sidebar={state.sidebar}>

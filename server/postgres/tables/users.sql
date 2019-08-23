@@ -1,0 +1,9 @@
+BEGIN TRANSACTION;
+CREATE TABLE users (
+  id serial PRIMARY KEY,
+  name VARCHAR(30),
+  email text UNIQUE NOT NULL,
+  joined TIMESTAMP NOT NULL
+);
+
+COMMIT;

@@ -1,13 +1,28 @@
 version: "3.7"
 
 services:
+  # Backend API
   backend-api:
     container_name: backend
     # image: node:12.2.0
     build: ./
     command: npm start
     working_dir: /usr/src/schooldash/server
+    environment:
+      POSTGRES_URI: postgres://aj:secret@postgres:5432/dashr-dock
+      # use links to connect to outside services
     ports:
       - "5001:5001"
-    networks:
-      - default
+      # maps HERE to: THERE
+    volumes:
+      - ./:/usr/src/schooldash/server
+      # Postgres
+  postgres:
+    environment:
+      POSTGRES_USER: aj
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: dashr-dock
+      POSTGRES_HOST: postgres
+    build: ./postgres
+    ports:
+      - "5432:5432"

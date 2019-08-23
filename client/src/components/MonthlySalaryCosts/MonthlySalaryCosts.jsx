@@ -5,7 +5,6 @@ import { employeeData } from "../employeeData";
 import { BigContent } from "../Card/Card.styles";
 
 const MonthlySalaryCosts = ({ ...props }) => {
-  console.log(props);
   return (
     <Card {...props} header="Monthly costs for employees">
       <BigContent>

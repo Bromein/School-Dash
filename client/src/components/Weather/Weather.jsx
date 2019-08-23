@@ -19,8 +19,6 @@ const Weather = () => {
         .then(data => {
           doAction({ type: "SET_WEATHER", payload: data });
           doAction({ type: "SET_LOADING", payload: !state.loading });
-          // console.log(data);
-          // setLoading(false);
         });
     });
   }, []);

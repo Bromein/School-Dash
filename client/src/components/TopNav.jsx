@@ -9,7 +9,7 @@ import { CTX } from "../context/Store";
 
 const TopNav = () => {
   const [state, doAction] = useContext(CTX);
-
+  console.log(state);
   return (
     <StyledTopNav sidebar={state.sidebar}>
       <MenuButton
@@ -17,7 +17,7 @@ const TopNav = () => {
         onClick={() =>
           doAction({
             type: "TOGGLE_SIDEBAR",
-            payload: !state.sidebar,
+            payload: !state.sidebar
           })
         }
       />
@@ -27,6 +27,7 @@ const TopNav = () => {
       <Weather />
       <div className="profile-buttons">
         <Notifications className="notification" />
+        {state.user && state.user.userId}
         <Avatar />
       </div>
     </StyledTopNav>

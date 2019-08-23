@@ -2,7 +2,7 @@ const handleSignUp = (db, bcrypt) => (req, res) => {
   const { name, email, secret } = req.body;
   // const salts = bcrypt.genSaltSync(10);
   const hash = bcrypt.hashSync(secret, 10);
-  console.log("name", name, "email", email);
+
   db.transaction(trx => {
     trx
       .insert({

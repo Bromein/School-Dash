@@ -16,8 +16,10 @@ export const SideNavContainer = styled.aside`
   transition: left 0.2s ease-in-out;
 
   @media (max-width: 800px) {
-    position: absolute;
-    left: -24rem;
+    ${props =>
+      !props.sidebar
+        ? "display: flex; position: relative; left: 0;"
+        : "position: absolute; left: -24rem;"};
   }
 
   img {
