@@ -40,9 +40,9 @@ const signToken = email => {
 
 const createSession = user => {
   // create JWT token, return user data
-  const { email, id } = user;
+  const { email, ...others } = user;
   const token = signToken(email);
-  return { success: "true", user: { id, email }, token };
+  return { success: "true", userInfo: { ...others }, token };
 };
 
 const authorizeLogin = (db, bcrypt) => (req, res) => {

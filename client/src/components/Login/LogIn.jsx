@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { StyledDashPage } from "../../styles/DashboardPage.styles";
 import { CTX } from "../../context/Store";
+import { LoginForm } from "./Login.styles";
 
-const LogIn = () => {
+const LogIn = ({ history }) => {
   const [state, doAction] = useContext(CTX);
 
   const [values, setValues] = useState({
@@ -25,19 +26,26 @@ const LogIn = () => {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.userId) {
+        if (data.userInfo) {
           //set the user inside our context
           doAction({ type: "SET_USER", payload: data });
+          history.push("/");
         }
       });
   };
   return (
     <StyledDashPage>
-      email:
-      <input onChange={updateField} type="email" name="email" />
-      password:
-      <input onChange={updateField} type="password" name="secret" />
-      <button onClick={handleSubmit}>Submit</button>
+      <LoginForm>
+        email:
+        <input onChange={updateField} type="email" name="email" />
+        password:
+        <input onChange={updateField} type="password" name="secret" />
+        <button onClick={handleSubmit}>Submit</button>
+        <div>
+          Not a member? Sign up{" "}
+          <span onClick={() => history.push("/signup")}>here</span>
+        </div>
+      </LoginForm>
     </StyledDashPage>
   );
 };

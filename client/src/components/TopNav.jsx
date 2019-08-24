@@ -26,9 +26,17 @@ const TopNav = () => {
       </div>
       <Weather />
       <div className="profile-buttons">
-        <Notifications className="notification" />
-        {state.user && state.user.userId}
-        <Avatar />
+        {state.user ? (
+          <>
+            <Notifications className="notification" />
+            <div onClick={console.log("clicked")}>
+              {state.user.userInfo.name}
+            </div>
+          </>
+        ) : (
+          <p>Login | SignUp</p>
+        )}
+        {/* <Avatar /> */}
       </div>
     </StyledTopNav>
   );
