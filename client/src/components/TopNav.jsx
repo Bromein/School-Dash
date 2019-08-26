@@ -9,7 +9,7 @@ import { CTX } from "../context/Store";
 
 const TopNav = () => {
   const [state, doAction] = useContext(CTX);
-  console.log(state);
+
   return (
     <StyledTopNav sidebar={state.sidebar}>
       <MenuButton
@@ -29,9 +29,7 @@ const TopNav = () => {
         {state.user ? (
           <>
             <Notifications className="notification" />
-            <div onClick={console.log("clicked")}>
-              {state.user.userInfo.name}
-            </div>
+            <div onClick={console.log("clicked")}>{state.user.name}</div>
           </>
         ) : (
           <p>Login | SignUp</p>

@@ -10,6 +10,7 @@ services:
     working_dir: /usr/src/schooldash/server
     environment:
       POSTGRES_URI: postgres://aj:secret@postgres:5432/dashr-dock
+      REDIS_URI: redis://redis:6379
       # use links to connect to outside services
     ports:
       - "5001:5001"
@@ -26,3 +27,7 @@ services:
     build: ./postgres
     ports:
       - "5432:5432"
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"

@@ -16,6 +16,11 @@ const LogIn = ({ history }) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
+  const setTokenToSession = token => {
+    //can use sessionStorage or localStorage
+    window.sessionStorage.setItem("token", token);
+  };
+
   const handleSubmit = () => {
     fetch("/api/login", {
       method: "POST",
@@ -26,9 +31,14 @@ const LogIn = ({ history }) => {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.userInfo) {
+        if (data.userId) {
+          setTokenToSession(data.token);
           //set the user inside our context
-          doAction({ type: "SET_USER", payload: data });
+          fetch(`/api/profile/${data.userId}`)
+            .then(res => res.json())
+            .then(data => {
+              doAction({ type: "SET_USER", payload: data });
+            });
           history.push("/");
         }
       });
