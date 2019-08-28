@@ -34,7 +34,13 @@ const LogIn = ({ history }) => {
         if (data.userId) {
           setTokenToSession(data.token);
           //set the user inside our context
-          fetch(`/api/profile/${data.userId}`)
+          fetch(`/api/profile/${data.userId}`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: window.sessionStorage.getItem("token")
+            }
+          })
             .then(res => res.json())
             .then(data => {
               doAction({ type: "SET_USER", payload: data });

@@ -41,7 +41,7 @@ const getauthTokenId = (req, res) => {
 
 const signToken = email => {
   const jwtPayload = { email };
-  return jwt.sign(jwtPayload, "JWT_SECRET", { expiresIn: "3 hours" });
+  return jwt.sign(jwtPayload, "supersecretshhh", { expiresIn: "1hr" });
 };
 
 const setToken = (key, value) => {
@@ -79,5 +79,6 @@ const authorizeLogin = (db, bcrypt) => (req, res) => {
 };
 
 module.exports = {
-  authorizeLogin
+  authorizeLogin,
+  redisClient
 };

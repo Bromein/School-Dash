@@ -1,22 +1,20 @@
 <br />
 <p align="center">
-  <!-- <a href="https://github.com/bromein/repo">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a> -->
+  <a href="https://github.com/bromein/Dashr">
+    <img src="/client/public/favicon.ico" alt="Logo" width="80" height="80">
+  </a>
 
-  <h3 align="center">School Dash</h3>
+  <h3 align="center">Dashr</h3>
 
   <p align="center">
-    School dash is a dashboard for school administration staff to monitor and store employee performance records, school finances, as well as goals.
+    Dashr was created to assist those in corporate settings. It allows administration to monitor company budget, staff, weather, and more.
     <br />
-    <a href="https://github.com/bromein/repo"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/bromein/Dashr"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/bromein/repo">View Demo</a>
+    <a href="https://github.com/bromein/Dashr/issues">Bugs & Issues</a>
     ·
-    <a href="https://github.com/bromein/repo/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/bromein/repo/issues">Request Feature</a>
+    <a href="https://github.com/bromein/Dashr/issues">Request a Feature</a>
   </p>
 </p>
 
@@ -40,14 +38,17 @@
 
 ## About The Project
 
-Screenshot coming soon.
+![Dashr](/Screenshot.jpg?raw=true)
 
 ### Built With
 
 - [React]("https://reactjs.org/")
-- [Redux]("https://redux.js.org/")
+- [React Router]("https://reacttraining.com/react-router/")
+- [Redis]("https://redis.io/")
+- [Docker]("https://www.docker.com/")
+- [PostgreSQL]("https://www.postgresql.org/")
 - [Node]("https://nodejs.org/en/")
-- [Firebase]("https://firebase.google.com")
+- [Express]("https://expressjs.com/")
 - [Styled Components]("http://styled-components.com")
 
 <!-- GETTING STARTED -->
@@ -64,23 +65,58 @@ To get a local copy up and running follow these simple steps.
 npm install npm@latest -g
 ```
 
-### Installation
+- Redis
 
-1. Clone the repo
+[Redis]("https://redis.io/download")
+
+- PostgreSQL
 
 ```sh
-git clone https:://github.com/bromein/repo.git
+brew install postgresql
+```
+
+OR from their [official website]("https://www.postgresql.org/")
+
+- Docker
+
+[Docker]("https://docs.docker.com/install/")
+
+### Installation
+
+1. Clone Dashr
+
+```sh
+git clone https:://github.com/bromein/Dashr.git
 ```
 
 2. Install yarn packages
 
 ```sh
 yarn install
+or
+npm install
+```
+
+2. Build the docker container
+   Navigate to /server and run
+
+```sh
+docker-compose up --build
+```
+
+This initiates the docker container and builds the database.
+
+3. Once your server and db are running, head over to the /client directory and...
+
+```sh
+yarn start
+or
+npm start
 ```
 
 ## Roadmap
 
-See the [open issues](https://github.com/bromein/repo/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/bromein/Dashr/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -105,23 +141,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 [@AJBroman](https://twitter.com/ajbroman)
-[https://github.com/bromein/repo](https://github.com/bromein/repo)
-
-## Acknowledgements
-
-- [Netlify]()
-
-<!-- [contributors-shield]: https://img.shields.io/github/contributors/bromein/repo/svg?style=flat-square
-[contributors-url]: https://github.com/bromein/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/bromein/repo/svg?style=flat-square
-[forks-url]: https://github.com/bromein/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/bromein/repo/svg?style=flat-square
-[stars-url]: https://github.com/bromein/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/bromein/repo/svg?style=flat-square
-[issues-url]: https://github.com/bromein/repo/issues
-[license-shield]: https://img.shields.io/github/license/bromein/repo/svg?style=flat-square
-[license-url]: https://github.com/bromein/repo/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/bromein
-
-repo/ images/screenshot.png -->
+[https://github.com/bromein/Dashr](https://github.com/bromein/Dashr)

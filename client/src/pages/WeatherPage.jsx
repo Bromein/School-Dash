@@ -11,7 +11,7 @@ import {
   DayTitle,
   WeatherCard,
   WeatherSummary,
-  WeatherTemperature,
+  WeatherTemperature
 } from "./WeatherPage/WeatherPage.styles";
 import { BreadCrumb } from "../styles/BreadCrumb";
 
@@ -21,13 +21,13 @@ const convertEpoch = time => {
   return day.toLocaleDateString("en-us", {
     weekday: "short",
     month: "short",
-    day: "numeric",
+    day: "numeric"
   });
 };
 
 const WeatherPage = ({ match }) => {
   const [state, doAction] = React.useContext(CTX);
-  console.log(state.location);
+
   return (
     <StyledWeatherPage sidebar={state.sidebar}>
       <BreadCrumb>Home{match.path}</BreadCrumb>

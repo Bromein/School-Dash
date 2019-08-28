@@ -71,6 +71,21 @@ export const StyledTopNav = styled.nav`
     }
   }
 
+  .profile {
+    &:hover {
+      color: ${props => props.theme.accentGreen};
+      cursor: pointer;
+    }
+
+    &:last-child {
+      margin-left: 1rem;
+      &:hover {
+        color: ${props => props.theme.accentRed};
+      }
+
+    }
+  }
+
   @media (max-width: 800px) {
     grid-column: 1;
   }

@@ -9,6 +9,8 @@ const morgan = require("morgan");
 const signin = require("./controllers/signin");
 const signup = require("./controllers/signup");
 const profile = require("./controllers/profile");
+const staff = require("./controllers/staff");
+const auth = require("./middleware/auth");
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -20,18 +22,17 @@ const db = knex({
   connection: process.env.POSTGRES_URI
 });
 
+// open endpoints
 app.post("/api/login", signin.authorizeLogin(db, bcrypt));
-
 app.post("/api/signup", signup.handleSignUp(db, bcrypt));
 
-app.get("/api/profile/:id", (req, res) => {
+//gated endpoints
+app.post("/api/staff", auth.requireAuth, staff.addStaff(db));
+app.get("/api/staff/:id", staff.fetchStaff(db));
+app.get("/api/profile/:id", auth.requireAuth, (req, res) => {
   profile.handleGetProfile(req, res, db);
 });
 
-console.table([
-  process.env.POSTGRES_HOST,
-  process.env.POSTGRES_DB,
-  process.env.POSTGRES_USER
-]);
+console.table(["Hello", "From", "The Inside :) "]);
 
 app.listen(5001, () => console.log("listening on port 5001"));

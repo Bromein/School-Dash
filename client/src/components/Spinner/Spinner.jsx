@@ -1,5 +1,5 @@
 import React from "react";
-import { AnimatedSpinner, SpinWrap } from "./Spinner.styles";
+import { AnimatedSpinner } from "./Spinner.styles";
 
 const Spinner = ({ ...props }) => {
   return <AnimatedSpinner {...props} />;

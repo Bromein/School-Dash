@@ -4,7 +4,7 @@ import { Route, Redirect } from "react-router-dom";
 import { CTX } from "../context/Store";
 
 //temporary auth toy
-const isAuthenticated = (doAction, history) => {
+const isAuthenticated = doAction => {
   const token = window.sessionStorage.getItem("token");
   if (token) {
     fetch("/api/login", {
@@ -46,7 +46,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   useEffect(() => {
     isAuthenticated(doAction);
   }, []);
-  console.log(state.user);
 
   return (
     <Route

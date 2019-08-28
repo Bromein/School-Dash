@@ -1,14 +1,19 @@
 import React, { useContext } from "react";
+import { withRouter } from "react-router-dom";
 import { StyledTopNav } from "../styles/TopNav.styles";
 import { ReactComponent as MenuButton } from "../assets/icons/menu.svg";
 import { ReactComponent as Notifications } from "../assets/icons/notification.svg";
-import { ReactComponent as Avatar } from "../assets/icons/avatar.svg";
+// import { ReactComponent as Avatar } from "../assets/icons/avatar.svg";
 import Weather from "./Weather/Weather";
 
 import { CTX } from "../context/Store";
 
-const TopNav = () => {
+const TopNav = ({ history }) => {
   const [state, doAction] = useContext(CTX);
+
+  const logOut = () => {
+    sessionStorage.clear();
+  };
 
   return (
     <StyledTopNav sidebar={state.sidebar}>
@@ -29,14 +34,20 @@ const TopNav = () => {
         {state.user ? (
           <>
             <Notifications className="notification" />
-            <div onClick={console.log("clicked")}>{state.user.name}</div>
+            <span className="profile" onClick={() => console.log("click")}>
+              {state.user.name}
+            </span>
+            <span className="profile" onClick={logOut}>
+              Log Out
+            </span>
           </>
         ) : (
           <p>Login | SignUp</p>
         )}
+
         {/* <Avatar /> */}
       </div>
     </StyledTopNav>
   );
 };
-export default TopNav;
+export default withRouter(TopNav);

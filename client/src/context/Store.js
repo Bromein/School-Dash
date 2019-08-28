@@ -21,9 +21,9 @@ const reducer = (state, action) => {
 export default props => {
   const state = useReducer(reducer, {
     sidebar: true,
-    location: null,
+    location: {},
     loading: true,
-    user: null
+    user: {}
   });
 
   return <CTX.Provider value={state}>{props.children}</CTX.Provider>;
