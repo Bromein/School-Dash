@@ -4,7 +4,7 @@ import { CTX } from "../../context/Store";
 import { LoginForm } from "./Login.styles";
 
 const LogIn = ({ history }) => {
-  const [state, doAction] = useContext(CTX);
+  const { setUser } = useContext(CTX);
 
   const [values, setValues] = useState({
     email: "",
@@ -18,7 +18,7 @@ const LogIn = ({ history }) => {
 
   const setTokenToSession = token => {
     //can use sessionStorage or localStorage
-    window.sessionStorage.setItem("token", token);
+    sessionStorage.setItem("token", token);
   };
 
   const handleSubmit = () => {
@@ -43,7 +43,9 @@ const LogIn = ({ history }) => {
           })
             .then(res => res.json())
             .then(data => {
-              doAction({ type: "SET_USER", payload: data });
+              setUser({
+                ...data
+              });
             });
           history.push("/");
         }

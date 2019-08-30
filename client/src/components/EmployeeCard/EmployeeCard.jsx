@@ -3,7 +3,7 @@ import { StyledEmployeeCard, ActionBar } from "./EmployeeCard.styles";
 import { ReactComponent as Delete } from "../../assets/icons/trash.svg";
 import { ReactComponent as Edit } from "../../assets/icons/pencil.svg";
 const EmployeeCard = ({
-  employee: { name, position, age, hireDate, skills, salary },
+  employee: { staff_name, staff_position, staff_salary, hire_date }
 }) => {
   return (
     <StyledEmployeeCard>
@@ -11,15 +11,10 @@ const EmployeeCard = ({
         <Edit className="edit" />
         <Delete className="delete" />
       </ActionBar>
-      <h1>{name}</h1>
-      <h2>{position}</h2>
-      <h3>Hired on: {hireDate}</h3>
-      <ul>
-        {skills.map(skill => (
-          <li>{skill}</li>
-        ))}
-      </ul>
-      <h3>salary: {salary / 1000.0}k</h3>
+      <h1>{staff_name}</h1>
+      <h2>{staff_position}</h2>
+      <h3>Hired on: {hire_date}</h3>
+      <h3>salary: {Number(staff_salary) / 1000}k</h3>
     </StyledEmployeeCard>
   );
 };

@@ -27,6 +27,15 @@ export const StyledTopNav = styled.nav`
       width: 25%;
     }
   }
+  .login-signup {
+    padding: .5rem;
+    color: #fff;
+    font-size: 1.2rem;
+
+    &:hover {
+      color: ${props => props.theme.accentGreen};
+    }
+  }
 
   input {
     padding: 1rem;

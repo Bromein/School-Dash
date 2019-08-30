@@ -28,11 +28,12 @@ app.post("/api/signup", signup.handleSignUp(db, bcrypt));
 
 //gated endpoints
 app.post("/api/staff", auth.requireAuth, staff.addStaff(db));
-app.get("/api/staff/:id", staff.fetchStaff(db));
+app.get("/api/staff/:id", auth.requireAuth, staff.fetchStaff(db));
 app.get("/api/profile/:id", auth.requireAuth, (req, res) => {
   profile.handleGetProfile(req, res, db);
 });
-
+// app.delete
+// app.put
 console.table(["Hello", "From", "The Inside :) "]);
 
 app.listen(5001, () => console.log("listening on port 5001"));

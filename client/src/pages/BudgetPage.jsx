@@ -4,9 +4,9 @@ import { StyledDashPage } from "../styles/DashboardPage.styles";
 import { CTX } from "../context/Store";
 
 const BudgetPage = () => {
-  const [state, doAction] = React.useContext(CTX);
+  const { sideBar } = React.useContext(CTX);
   return (
-    <StyledDashPage sidebar={state.sidebar}>
+    <StyledDashPage sidebar={sideBar}>
       <h1>Budget Page</h1>
     </StyledDashPage>
   );

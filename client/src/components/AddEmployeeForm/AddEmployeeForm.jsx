@@ -3,23 +3,24 @@ import { EmployeeForm } from "./AddEmployeeForm.styles";
 import { CTX } from "../../context/Store";
 
 const AddEmployeeForm = () => {
-  const [state, doAction] = useContext(CTX);
-  const [employeeDetails, setEmployeeDetails] = useState({
-    id: "",
+  const { user, staff, setStaff } = useContext(CTX);
+
+  const initState = {
+    id: user.id,
     staffName: "",
     staffPosition: "",
-    staffSalary: null,
+    staffSalary: "",
     hireDate: ""
-  });
+  };
+  const [employeeDetails, setEmployeeDetails] = useState(initState);
 
   const updateField = e => {
     //grab the field and update the corresponding value
     setEmployeeDetails({
       ...employeeDetails,
-      id: state.user.id,
+      id: user.id,
       [e.target.name]: e.target.value
     });
-    console.log(employeeDetails);
   };
 
   const handleSubmit = () => {
@@ -28,32 +29,55 @@ const AddEmployeeForm = () => {
       body: JSON.stringify(employeeDetails),
       headers: {
         "Content-Type": "application/json",
-        Authorization: window.sessionStorage.getItem("token")
+        Authorization: sessionStorage.getItem("token")
       }
     });
+    setEmployeeDetails(initState);
+    setStaff(...staff, employeeDetails);
   };
+
   return (
     <EmployeeForm>
       <h1>Add Employee Form</h1>
 
       <span>
         <label>Full Name</label>
-        <input onChange={updateField} type="text" name="staffName" />
+        <input
+          onChange={updateField}
+          value={employeeDetails.staffName}
+          type="text"
+          name="staffName"
+        />
       </span>
 
       <span>
         <label>Position</label>
-        <input onChange={updateField} type="text" name="staffPosition" />
+        <input
+          onChange={updateField}
+          value={employeeDetails.staffPosition}
+          type="text"
+          name="staffPosition"
+        />
       </span>
 
       <span>
         <label>Hire Date</label>
-        <input onChange={updateField} type="date" name="hireDate" />
+        <input
+          onChange={updateField}
+          value={employeeDetails.hireDate}
+          type="date"
+          name="hireDate"
+        />
       </span>
 
       <span>
         <label>Salary</label>
-        <input onChange={updateField} type="number" name="staffSalary" />
+        <input
+          onChange={updateField}
+          value={employeeDetails.staffSalary}
+          type="number"
+          name="staffSalary"
+        />
       </span>
       <button onClick={handleSubmit}>Add</button>
     </EmployeeForm>

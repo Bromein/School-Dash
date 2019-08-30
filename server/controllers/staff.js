@@ -16,7 +16,7 @@ const fetchStaff = db => (req, res) => {
   return (
     db("staff")
       .where({
-        author_id: req.params
+        author_id: req.params.id
       })
       //receiving post array here and sending it to the front end
       .then(data => res.send(data))

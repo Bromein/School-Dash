@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CTX } from "../context/Store";
 
 import Icon from "../components/Icon/Icon";
-import Card from "../components/Card/Card";
 import Spinner from "../components/Spinner/Spinner";
 import {
   StyledWeatherPage,
   WeatherTitle,
-  WeatherContent,
   DayTitle,
   WeatherCard,
   WeatherSummary,
@@ -26,18 +24,18 @@ const convertEpoch = time => {
 };
 
 const WeatherPage = ({ match }) => {
-  const [state, doAction] = React.useContext(CTX);
+  const { location, sideBar } = useContext(CTX);
 
   return (
-    <StyledWeatherPage sidebar={state.sidebar}>
+    <StyledWeatherPage sidebar={sideBar}>
       <BreadCrumb>Home{match.path}</BreadCrumb>
       <WeatherTitle>7 day forecast</WeatherTitle>
 
-      {state.loading ? (
+      {!location.daily ? (
         <Spinner big />
       ) : (
         <>
-          {state.location.daily.data.map((day, index) => (
+          {location.daily.data.map((day, index) => (
             <WeatherCard key={index}>
               <DayTitle>{convertEpoch(day.time)}</DayTitle>
               <Icon className="cardIcon" name={day.icon} />

@@ -5,37 +5,41 @@ import { WeatherBar, FlexColumn } from "./Weather.styles";
 import { CTX } from "../../context/Store";
 
 const Weather = () => {
-  const [isLoading, setLoading] = useState(true);
-  const [state, doAction] = useContext(CTX);
+  const { location, setLocation } = useContext(CTX);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     //fetch weather from darksky and store it in state so we can use it in our weather page
-    navigator.geolocation.getCurrentPosition(position => {
-      fetch(
-        `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${
-          process.env.REACT_APP_DARKSKY_API
-        }/${position.coords.latitude},${position.coords.longitude}`
-      )
-        .then(res => res.json())
-        .then(data => {
-          doAction({ type: "SET_WEATHER", payload: data });
-          doAction({ type: "SET_LOADING", payload: !state.loading });
-        });
-    });
+    const fetchLocation = () => {
+      navigator.geolocation.getCurrentPosition(position => {
+        fetch(
+          `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${
+            process.env.REACT_APP_DARKSKY_API
+          }/${position.coords.latitude},${position.coords.longitude}`
+        )
+          .then(res => res.json())
+          .then(data => {
+            setLocation({ ...data });
+            setLoading(false);
+          });
+      });
+    };
+    fetchLocation();
   }, []);
 
   return (
     <div>
-      {state.loading ? (
+      {loading ? (
         <Spinner />
       ) : (
         <WeatherBar>
-          <Icon name={`${state.location.currently.icon}`} />
+          <Icon name={location.currently.icon} />
           {/* <Icon name="clear-day" /> */}
           <FlexColumn>
             <div>
-              {Math.ceil(state.location.currently.temperature)}º<span>F</span>
+              {Math.ceil(location.currently.temperature)}º<span>F</span>
             </div>
-            <span>{state.location.currently.summary}</span>
+            <span>{location.currently.summary}</span>
           </FlexColumn>
         </WeatherBar>
       )}

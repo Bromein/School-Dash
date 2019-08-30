@@ -41,7 +41,7 @@ const getauthTokenId = (req, res) => {
 
 const signToken = email => {
   const jwtPayload = { email };
-  return jwt.sign(jwtPayload, "supersecretshhh", { expiresIn: "1hr" });
+  return jwt.sign(jwtPayload, "supersecretshhh", { expiresIn: "3h" });
 };
 
 const setToken = (key, value) => {
@@ -72,7 +72,7 @@ const authorizeLogin = (db, bcrypt) => (req, res) => {
         .then(data => {
           return data.id && data.email
             ? createSession(data)
-            : Promise.reject(data);
+            : Promise.reject("There was an error (data)");
         })
         .then(session => res.json(session));
   // .catch(err => res.status(400).json("err"));

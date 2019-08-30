@@ -5,7 +5,7 @@ import {
   VictoryAxis,
   VictoryTheme,
   VictoryStack,
-  VictoryPie,
+  VictoryPie
 } from "victory";
 
 import { BreadCrumb } from "../styles/BreadCrumb";
@@ -19,32 +19,55 @@ const tempData2017 = [
   { quarter: 1, earnings: 13000 },
   { quarter: 2, earnings: 16500 },
   { quarter: 3, earnings: 14250 },
-  { quarter: 4, earnings: 19000 },
+  { quarter: 4, earnings: 19000 }
 ];
 
 const tempData2018 = [
   { quarter: 1, earnings: 15000 },
   { quarter: 2, earnings: 12500 },
   { quarter: 3, earnings: 19500 },
-  { quarter: 4, earnings: 19000 },
+  { quarter: 4, earnings: 19000 }
 ];
 const tempData2019 = [
   { quarter: 1, earnings: 15000 },
   { quarter: 2, earnings: 12500 },
-  { quarter: 3, earnings: 19500 },
+  { quarter: 3, earnings: 19500 }
 ];
 
 const whereMyMoneyAt = [
   { x: "Teachers", y: 30 },
   { x: "Food", y: 30 },
-  { x: "Cleaning", y: 40 },
+  { x: "Cleaning", y: 40 }
 ];
 
 const Dashboard = ({ match }) => {
-  const [state, doAction] = React.useContext(CTX);
+  const { staff, sideBar } = React.useContext(CTX);
 
+  // React.useEffect(() => {
+  //   if (user.id) {
+  //     fetchStaffForCurrentUser(user.id);
+  //   }
+  // }, [user, staff.length]);
+
+  // const fetchStaffForCurrentUser = async id => {
+  //   try {
+  //     const token = sessionStorage.getItem("token");
+  //     const data = await fetch(`/api/staff/${id}`, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: token
+  //       }
+  //     });
+  //     const staffData = await data.json();
+  //     setStaff(staffData);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+  console.log("dashboard:", staff);
   return (
-    <StyledDashPage sidebar={state.sidebar}>
+    <StyledDashPage sidebar={sideBar}>
       <BreadCrumb>Home{match.path}</BreadCrumb>
       <GraphCard>
         <VictoryPie

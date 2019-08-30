@@ -1,30 +1,55 @@
-import React, { useReducer } from "react";
-import { types } from "./types";
+import React, { useState } from "react";
+// import { types } from "./types";
 
 export const CTX = React.createContext();
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case types.TOGGLE_SIDEBAR:
-      return { ...state, sidebar: action.payload };
-    case types.SET_WEATHER:
-      return { ...state, location: action.payload };
-    case types.SET_LOADING:
-      return { ...state, loading: action.payload };
-    case types.SET_USER:
-      return { ...state, user: action.payload };
-    default:
-      return state;
-  }
-};
-
 export default props => {
-  const state = useReducer(reducer, {
-    sidebar: true,
-    location: {},
-    loading: true,
-    user: {}
-  });
+  const [sideBar, setSideBar] = useState(true);
+  const [location, setLocation] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState({});
+  const [staff, setStaff] = useState([]);
 
-  return <CTX.Provider value={state}>{props.children}</CTX.Provider>;
+  // const reducer = (state, action) => {
+  //   switch (action.type) {
+  //     case "ADD_STAFF":
+  //       return { ...state, }
+  //   }
+  // }
+
+  // const staffContext = {
+  //   staff: []
+  // }
+
+  const stateContext = {
+    sideBar,
+    setSideBar,
+    location,
+    setLocation,
+    loading,
+    setLoading,
+    user,
+    setUser,
+    staff,
+    setStaff
+  };
+  return <CTX.Provider value={stateContext}>{props.children}</CTX.Provider>;
 };
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case types.TOGGLE_SIDEBAR:
+//       return { ...state, sidebar: action.payload };
+//     case types.SET_WEATHER:
+//       return { ...state, location: action.payload };
+//     case types.SET_LOADING:
+//       return { ...state, loading: action.payload };
+//     case types.SET_USER:
+//       return { ...state, user: action.payload };
+//     case types.LOG_OUT:
+//       return { ...state, user: {} };
+//     case types.GET_STAFF:
+//       return { ...state, staff: action.payload };
+//     default:
+//       return state;
+//   }
+// };

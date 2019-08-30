@@ -12,10 +12,10 @@ import { CTX } from "../context/Store";
 import { SideNavContainer } from "../styles/SideNav.styles";
 
 const SideNav = () => {
-  const [state, doAction] = useContext(CTX);
+  const { sideBar } = useContext(CTX);
 
   return (
-    <SideNavContainer sidebar={state.sidebar}>
+    <SideNavContainer sidebar={sideBar}>
       <p>
         <img src={Logo} alt={"Dashr Logo"} />
       </p>
@@ -43,7 +43,6 @@ const SideNav = () => {
         </li>
       </ul>
       <div>
-        <Link to="/signup">Sign Up</Link>
         <p>Upgrade To Pro</p>
       </div>
     </SideNavContainer>

@@ -4,47 +4,42 @@ import { Route, Redirect } from "react-router-dom";
 import { CTX } from "../context/Store";
 
 //temporary auth toy
-const isAuthenticated = doAction => {
-  const token = window.sessionStorage.getItem("token");
-  if (token) {
-    fetch("/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.id) {
-          fetch(`/api/profile/${data.id}`, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: token
-            }
-          })
-            .then(res => res.json())
-            .then(user => {
-              if (user && user.email) {
-                doAction({
-                  type: "SET_USER",
-                  payload: user
-                });
-                // history.push("/");
-              }
-            });
+const isAuthenticated = async setUser => {
+  const token = sessionStorage.getItem("token");
+  try {
+    if (token) {
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token
         }
-      })
-      .catch(err => console.log(err));
+      });
+      const data = await res.json();
+      if (data && data.id) {
+        const res = await fetch(`/api/profile/${data.id}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token
+          }
+        });
+        const user = await res.json();
+        if (user && user.email) {
+          setUser(user);
+        }
+      }
+    }
+  } catch (err) {
+    console.log("YOOOO");
   }
 };
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const [state, doAction] = useContext(CTX);
+  const { setUser } = useContext(CTX);
 
   useEffect(() => {
-    isAuthenticated(doAction);
+    isAuthenticated(setUser);
   }, []);
 
   return (
@@ -66,3 +61,5 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   );
 };
 export default PrivateRoute;
+
+//play with private route tomorrow, user is not rendering properly

@@ -65,7 +65,7 @@ export const StyledGraphCard = styled.div`
   }
 `;
 
-export const BigContent = styled.p`
+export const BigContent = styled.div`
   font-size: 5rem;
   color: ${props => props.theme.accentGreen};
 `;

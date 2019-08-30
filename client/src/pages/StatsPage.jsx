@@ -3,10 +3,10 @@ import { StyledDashPage } from "../styles/DashboardPage.styles";
 import { CTX } from "../context/Store";
 
 const StatsPage = () => {
-  const [state, doAction] = React.useContext(CTX);
+  const { sideBar } = React.useContext(CTX);
 
   return (
-    <StyledDashPage sidebar={state.sidebar}>
+    <StyledDashPage sidebar={sideBar}>
       <h1>Stats Page</h1>
     </StyledDashPage>
   );
