@@ -10,30 +10,6 @@ import Spinner from "../components/Spinner/Spinner";
 
 const StaffPage = ({ match }) => {
   const { staff, sideBar } = useContext(CTX);
-  // useEffect(() => {
-  //   if (user.id) {
-  //     fetchStaffForCurrentUser(user.id);
-  //   }
-  // }, [user, staff.length]);
-
-  console.log("StaffPage.js and this is what I know about the staff:", staff);
-
-  // const fetchStaffForCurrentUser = async id => {
-  //   try {
-  //     const token = sessionStorage.getItem("token");
-  //     const data = await fetch(`/api/staff/${id}`, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: token
-  //       }
-  //     });
-  //     const staffData = await data.json();
-  //     setStaff(staffData);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   return (
     <StyledDashPage sidebar={sideBar}>

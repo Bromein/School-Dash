@@ -9,7 +9,7 @@ export default props => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const [staff, setStaff] = useState([]);
-
+  const [budget, setBudget] = useState(0);
   // const reducer = (state, action) => {
   //   switch (action.type) {
   //     case "ADD_STAFF":
@@ -31,7 +31,9 @@ export default props => {
     user,
     setUser,
     staff,
-    setStaff
+    setStaff,
+    budget,
+    setBudget
   };
   return <CTX.Provider value={stateContext}>{props.children}</CTX.Provider>;
 };

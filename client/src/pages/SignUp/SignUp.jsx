@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { StyledDashPage } from "../../styles/DashboardPage.styles";
-const SignUp = () => {
+import { SignUpForm } from "./SignUp.styles";
+import { CTX } from "../../context/Store";
+
+const SignUp = ({ history }) => {
+  const { setUser } = useContext(CTX);
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -21,17 +25,28 @@ const SignUp = () => {
       }
     })
       .then(res => res.json())
-      .then(data => console.log("datasz"));
+      .then(data => {
+        if (data.id && data.email) {
+          setUser(data);
+          history.push("/");
+          /* //TODO
+              In later feature fetch login and set token here
+              so user does not have to log in after creating account
+          */
+        }
+      });
   };
   return (
     <StyledDashPage>
-      name:
-      <input onChange={updateField} type="text" name="name" />
-      email:
-      <input onChange={updateField} type="email" name="email" />
-      password:
-      <input onChange={updateField} type="password" name="secret" />
-      <button onClick={handleSubmit}>Submit</button>
+      <SignUpForm>
+        name:
+        <input onChange={updateField} type="text" name="name" />
+        email:
+        <input onChange={updateField} type="email" name="email" />
+        password:
+        <input onChange={updateField} type="password" name="secret" />
+        <button onClick={handleSubmit}>Submit</button>
+      </SignUpForm>
     </StyledDashPage>
   );
 };

@@ -25,7 +25,7 @@ const Weather = () => {
       });
     };
     fetchLocation();
-  }, []);
+  }, [setLocation, loading]);
 
   return (
     <div>

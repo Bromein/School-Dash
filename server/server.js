@@ -33,7 +33,8 @@ app.get("/api/profile/:id", auth.requireAuth, (req, res) => {
   profile.handleGetProfile(req, res, db);
 });
 // app.delete
-// app.put
+app.put("/api/profile/", profile.updateProfileBudget(db));
+
 console.table(["Hello", "From", "The Inside :) "]);
 
 app.listen(5001, () => console.log("listening on port 5001"));

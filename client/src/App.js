@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import PrivateRoute from "./components/PrivateRoute";
@@ -23,28 +23,29 @@ import SignUp from "./pages/SignUp/SignUp";
 function App(props) {
   const { user, staff, setStaff } = useContext(CTX);
 
-  React.useEffect(() => {
+  console.log(user, "hi");
+
+  useEffect(() => {
     if (user.id) {
+      const fetchStaffForCurrentUser = async id => {
+        try {
+          const token = sessionStorage.getItem("token");
+          const data = await fetch(`/api/staff/${id}`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: token
+            }
+          });
+          const staffData = await data.json();
+          setStaff(staffData);
+        } catch (err) {
+          console.log(err);
+        }
+      };
       fetchStaffForCurrentUser(user.id);
     }
-  }, [user, staff.length]);
-
-  const fetchStaffForCurrentUser = async id => {
-    try {
-      const token = sessionStorage.getItem("token");
-      const data = await fetch(`/api/staff/${id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token
-        }
-      });
-      const staffData = await data.json();
-      setStaff(staffData);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  }, [user, staff.length, setStaff]);
 
   return (
     <ThemeProvider theme={theme}>

@@ -25,6 +25,8 @@ const fetchStaff = db => (req, res) => {
 
 const deleteStaff = () => (req, res) => {};
 
+const updateStaff = db => (req, res) => {};
+
 module.exports = {
   addStaff,
   deleteStaff,

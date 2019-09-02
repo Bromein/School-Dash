@@ -40,7 +40,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
   useEffect(() => {
     isAuthenticated(setUser);
-  }, []);
+  }, [setUser]);
 
   return (
     <Route

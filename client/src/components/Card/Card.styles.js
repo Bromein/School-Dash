@@ -28,6 +28,7 @@ export const CardTitle = styled.header`
   justify-content: center;
   grid-column: 1 / -1;
   width: 100%;
+  background-color: ${props => props.theme.lightGray};
   border-radius: 0.5rem 0.5rem 0 0;
 `;
 

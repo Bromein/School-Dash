@@ -20,9 +20,13 @@ const MonthlySalaryCosts = ({ ...props }) => {
     );
   };
   return (
-    <Card {...props} header="Monthly costs for employees">
+    <Card {...props} header="Payroll">
       <BigContent>
-        {staff.length ? renderEmployeePayout(staff) : <Spinner />}
+        {staff.length ? (
+          renderEmployeePayout(staff)
+        ) : (
+          <p>Get started by adding your staff!</p>
+        )}
       </BigContent>
     </Card>
   );

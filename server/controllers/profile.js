@@ -13,6 +13,16 @@ const handleGetProfile = (req, res, db) => {
     .catch(err => res.status(400).json("error getting user"));
 };
 
+const updateProfileBudget = db => (req, res) => {
+  const { id, budget } = req.body;
+  db("users")
+    .where({ id })
+    .update({ budget }, ["budget"])
+    .then(newBudget => res.json(newBudget))
+    .catch(err => console.log("oops", err));
+};
+
 module.exports = {
-  handleGetProfile
+  handleGetProfile,
+  updateProfileBudget
 };
