@@ -1,0 +1,10 @@
+BEGIN TRANSACTION;
+
+CREATE TABLE budget (
+  id serial PRIMARY KEY,
+  author_id SMALLINT NOT NULL,
+  budget BIGINT NOT NULL,
+
+);
+
+COMMIT;

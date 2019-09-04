@@ -18,6 +18,7 @@ const SideNav = () => {
     <SideNavContainer sidebar={sideBar}>
       <p>
         <img src={Logo} alt={"Dashr Logo"} />
+        beta
       </p>
 
       <ul>
@@ -34,17 +35,19 @@ const SideNav = () => {
           <Link to="/budget">Budget</Link>
         </li>
         <li>
-          <Stats />
-          <Link to="/stats">Stats</Link>
+          <Stats style={{ fill: "gray" }} />
+          <Link style={{ cursor: "wait", color: "gray" }} to="/#">
+            Stats – coming soon
+          </Link>
         </li>
         <li>
           <Weather />
           <Link to="/weather">Weather</Link>
         </li>
       </ul>
-      <div>
+      {/* <div>
         <p>Upgrade To Pro</p>
-      </div>
+      </div> */}
     </SideNavContainer>
   );
 };

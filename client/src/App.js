@@ -21,9 +21,7 @@ import { GridWrap } from "./styles/App.styles";
 import SignUp from "./pages/SignUp/SignUp";
 
 function App(props) {
-  const { user, staff, setStaff } = useContext(CTX);
-
-  console.log(user, "hi");
+  const { user, staff, setStaff, news, setNews } = useContext(CTX);
 
   useEffect(() => {
     if (user.id) {
@@ -44,6 +42,23 @@ function App(props) {
         }
       };
       fetchStaffForCurrentUser(user.id);
+      const fetchNews = async () => {
+        if (!news.source)
+          try {
+            const newsArticles = await fetch(
+              `https://newsapi.org/v2/top-headlines?country=us&apiKey=${
+                process.env.REACT_APP_NEWS_API
+              }&category=general&pageSize=1`
+            );
+            const newsData = await newsArticles.json();
+            if (newsData.status) {
+              setNews(newsData.articles[0]);
+            }
+          } catch (err) {
+            console.log(err);
+          }
+      };
+      fetchNews();
     }
   }, [user, staff.length, setStaff]);
 

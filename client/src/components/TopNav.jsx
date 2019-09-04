@@ -26,7 +26,7 @@ const TopNav = ({ history }) => {
       <div className="profile-buttons">
         {user ? (
           <>
-            <Notifications className="notification" />
+            {/* <Notifications className="notification" /> */}
             <span className="profile" onClick={() => console.log("click")}>
               {user.name}
             </span>

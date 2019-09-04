@@ -13,19 +13,37 @@ export const EmployeeForm = styled.div`
   }
 
   input {
-    font-size: 2rem;
-    color: #fff;
-    padding: 2rem;
-    border-radius: 4px;
-    outline: none;
-    border: none;
-    width: 90%;
-    height: 3rem;
     background: ${props => props.theme.lightestGray};
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    height: 3rem;
+    outline: none;
+    padding: 2rem;
     transition: width 0.2s ease-in-out;
+    width: 90%;
 
     &:focus {
       width: 100%;
+    }
+  }
+
+  button {
+    background: ${props => props.theme.gray};
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    margin-top: 1rem;
+    outline: none;
+    padding: 1rem;
+    width: 90%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background: ${props => props.theme.accentRed};
+      border-radius: 1rem;
     }
   }
 `;

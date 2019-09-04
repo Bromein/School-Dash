@@ -13,7 +13,7 @@ const SignUp = ({ history }) => {
 
   const updateField = e => {
     //grab the field and update the corresponding value
-    setValues({ ...values, [e.target.name]: e.target.value });
+    setValues({ ...values, [e.target.name]: e.target.value.toLowerCase() });
   };
 
   const handleSubmit = () => {

@@ -38,8 +38,6 @@ const AddEmployeeForm = () => {
 
   return (
     <EmployeeForm>
-      <h1>Add Employee Form</h1>
-
       <span>
         <label>Full Name</label>
         <input

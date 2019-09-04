@@ -5,12 +5,13 @@ export const StyledCard = styled.div`
   display: grid;
   margin: 1rem;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-rows: ${props => (props.footer ? "1fr 4fr 1fr" : "1fr 5fr")};
   background-color: ${props => props.theme.cardColor};
   color: ${props => props.theme.textColor};
   box-shadow: 0.1rem 0.1rem 0.1rem 0rem rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
-
+  text-align: center;
+  user-select: none;
   @media (min-width: 1000px) {
     ${props => props.quarter && "grid-column: span 2"};
   }
@@ -28,7 +29,8 @@ export const CardTitle = styled.header`
   justify-content: center;
   grid-column: 1 / -1;
   width: 100%;
-  background-color: ${props => props.theme.lightGray};
+  background-color: ${props =>
+    props.money ? "#51ab57" : props.theme.lightGray};
   border-radius: 0.5rem 0.5rem 0 0;
 `;
 
@@ -36,6 +38,45 @@ export const CardContent = styled.section`
   align-self: center;
   justify-self: center;
   grid-column: 1 / -1;
+  width: 100%;
+
+  .legend {
+    display: flex;
+    justify-content: space-around;
+    font-size: 2rem;
+    padding: 1rem;
+    text-decoration: underline;
+
+    @media (max-width: 1000px) {
+      display: none;
+    }
+  }
+
+  .employee-breakdown {
+    ${props =>
+      props.stats && {
+        // background: "red",
+        display: "flex",
+        alignItems: "space-around",
+        justifyContent: "space-around",
+        marginTop: "2rem"
+      }}
+
+    span:nth-child(even) {
+      width: 50%;
+      border-radius: 14px;
+      background: ${props => props.theme.lightGray};
+      &:hover {
+        background: ${props => props.theme.lightestGray};
+      }
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .hire-date {
+      display: none;
+    }
+  }
 `;
 export const CardFooter = styled.footer`
   justify-self: center;
@@ -55,9 +96,6 @@ export const StyledGraphCard = styled.div`
 
   footer {
     width: 100%;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
   }
 
   @media (max-width: 1000px) {

@@ -23,7 +23,7 @@ const AddBudgetForm = ({ userId }) => {
       body: JSON.stringify(sendData)
     })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => setBudget(data[0]));
   };
   return (
     <div>

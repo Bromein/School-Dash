@@ -3,7 +3,6 @@ import AddBudgetForm from "../components/AddBudgetForm/AddBudgetForm";
 import { mapIndexToMonth } from "../utils/helpers";
 import { StyledDashPage } from "../styles/DashboardPage.styles";
 import {
-  Category,
   CurrentBudget,
   StyledBudgetPage
 } from "./BudgetPage/BudgetPage.styles";
