@@ -30,7 +30,13 @@ export const CardTitle = styled.header`
   grid-column: 1 / -1;
   width: 100%;
   background-color: ${props =>
-    props.money ? "#51ab57" : props.theme.lightGray};
+    props.money
+      ? "#51ab57"
+      : props.motive
+      ? props.theme.accentOrange
+      : props.inspire
+      ? props.theme.accentBlue
+      : props.theme.lightGray};
   border-radius: 0.5rem 0.5rem 0 0;
 `;
 

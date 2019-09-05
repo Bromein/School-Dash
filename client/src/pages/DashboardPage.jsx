@@ -9,7 +9,7 @@ import Spinner from "../components/Spinner/Spinner";
 
 const Dashboard = ({ match, history }) => {
   const { staff, sideBar, quote, budget } = React.useContext(CTX);
-  console.log(budget);
+
   return (
     <StyledDashPage
       style={{ gridTemplateRows: "3rem .5fr 1fr 1fr" }}
@@ -18,7 +18,7 @@ const Dashboard = ({ match, history }) => {
       <BreadCrumb>Home{match.path}</BreadCrumb>
 
       {quote && (
-        <Card onClick={() => {}} full header="Quote of the Day">
+        <Card inspire onClick={() => {}} full header="Quote of the Day">
           {quote ? (
             <div
               style={{
@@ -61,10 +61,14 @@ const Dashboard = ({ match, history }) => {
         </Card>
       )}
 
-      <Card header="Current Budget">{"HEHE"}</Card>
-      <Card full header="Monthly Focus">
-        FOCUS
+      <Card
+        style={{ cursor: "pointer" }}
+        onClick={() => history.push("/budget")}
+        header="Current Budget"
+      >
+        ${budget / 1000}k
       </Card>
+      <Card motive full header="Monthly Focus"></Card>
     </StyledDashPage>
   );
 };

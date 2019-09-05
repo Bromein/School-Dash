@@ -4,7 +4,7 @@ import { Route, Redirect } from "react-router-dom";
 import { CTX } from "../context/Store";
 
 //temporary auth toy
-const isAuthenticated = async setUser => {
+const isAuthenticated = async (setUser, setBudget) => {
   const token = sessionStorage.getItem("token");
   try {
     if (token) {
@@ -27,6 +27,7 @@ const isAuthenticated = async setUser => {
         const user = await res.json();
         if (user && user.email) {
           setUser(user);
+          setBudget(user.budget);
         }
       }
     }
@@ -36,11 +37,11 @@ const isAuthenticated = async setUser => {
 };
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { setUser } = useContext(CTX);
+  const { setUser, setBudget } = useContext(CTX);
 
   useEffect(() => {
-    isAuthenticated(setUser);
-  }, [setUser]);
+    isAuthenticated(setUser, setBudget);
+  }, [setUser, setBudget]);
 
   return (
     <Route

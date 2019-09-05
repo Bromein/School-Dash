@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { EmployeeForm } from "./AddEmployeeForm.styles";
 import { CTX } from "../../context/Store";
 
-const AddEmployeeForm = () => {
+const AddEmployeeForm = ({ formVisible, setFormVisible, ...props }) => {
   const { user, staff, setStaff } = useContext(CTX);
 
   const initState = {
@@ -31,13 +31,17 @@ const AddEmployeeForm = () => {
         "Content-Type": "application/json",
         Authorization: sessionStorage.getItem("token")
       }
-    });
-    setEmployeeDetails(initState);
-    setStaff(...staff, employeeDetails);
+    })
+      .then(setEmployeeDetails(initState))
+      .then(setStaff(...staff, employeeDetails))
+      .then(setFormVisible(!formVisible));
+
+    // setStaff(...staff, employeeDetails);
+    // setFormVisible(!formVisible);
   };
 
   return (
-    <EmployeeForm>
+    <EmployeeForm formVisible={formVisible}>
       <span>
         <label>Full Name</label>
         <input

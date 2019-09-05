@@ -4,8 +4,12 @@ export const EmployeeForm = styled.div`
   grid-column: 1 / -1;
   justify-self: center;
   padding: 5rem;
-  display: flex;
+  display: ${props => (props.formVisible ? "flex" : "none")};
+  opacity: ${props => (props.formVisible ? "1" : "0")};
+  width: ${props => props.formVisible || 0};
+  height: ${props => props.formVisible || 0};
   flex-direction: column;
+  transition: all 1s ease-in;
 
   label {
     font-size: 2rem;

@@ -34,7 +34,7 @@ app.get("/api/staff/:id", auth.requireAuth, staff.fetchStaff(db));
 app.get("/api/profile/:id", auth.requireAuth, (req, res) => {
   profile.handleGetProfile(req, res, db);
 });
-// app.delete
+app.delete("/api/staff/:id", staff.deleteStaff(db));
 app.put("/api/profile/", profile.updateProfileBudget(db));
 
 console.table(["Hello", "From", "The Inside :) "]);

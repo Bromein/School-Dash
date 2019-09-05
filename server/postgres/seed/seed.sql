@@ -12,7 +12,13 @@ INSERT into staff (author_id, staff_name, staff_position, staff_salary, hire_dat
 (1, 'Tretij Rebenok', 'VP Of Intel Division', 180000, '2013-07-04'),
 (1, 'Naomi Hunter', 'R&D Assistant', 180000, '2013-07-04'),
 (1, 'Richard Ames', 'SVP of Intel Division', 180000, '2013-07-04'),
-(1, 'Jack ''Raiden'' ', 'Company Mascot', 95000, '2006-03-04');
+(1, 'Jack ''Raiden'' ', 'Company Mascot', 95000, '2006-03-09');
+(1, 'David Forrest', 'Intel Chief', 120000, '2000-17-01');
+(1, 'Mei Ling', 'VP of Communications', 75000, '2003-11-04');
+(1, 'Naomi Hunter', 'Traitor', 32000, '2012-01-09');
+(1, 'Johnny Sasaki', 'Plumber', 45000, '2015-10-11');
+(1, 'Jim Houseman', 'President', 100000, '2010-03-01');
+(1, 'Tasia Velenza', 'Talent Scout', 52000, '2003-05-04');
 
 INSERT into quotes (content, author) values
 ('Your limitation is only your imagination', 'DashR'),

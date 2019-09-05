@@ -13,7 +13,7 @@ const MonthlySalaryCosts = ({ ...props }) => {
       <>
         $
         {staff.reduce((accu, employee) => {
-          return accu + Math.round(employee.staff_salary / 1000);
+          return accu + Math.round(employee.staff_salary / 1000 / 12);
         }, 0)}
         k
       </>

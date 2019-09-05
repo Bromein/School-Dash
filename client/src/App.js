@@ -21,9 +21,7 @@ import { GridWrap } from "./styles/App.styles";
 import SignUp from "./pages/SignUp/SignUp";
 
 function App(props) {
-  const { user, staff, setStaff, news, setNews, quote, setQuote } = useContext(
-    CTX
-  );
+  const { user, staff, setStaff, quote, setQuote } = useContext(CTX);
 
   useEffect(() => {
     const fetchStaffForCurrentUser = async id => {

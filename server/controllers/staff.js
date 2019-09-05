@@ -23,7 +23,15 @@ const fetchStaff = db => (req, res) => {
   );
 };
 
-const deleteStaff = () => (req, res) => {};
+const deleteStaff = db => (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  db("staff")
+    .where({ id: id })
+    .del()
+    .then(res.sendStatus(200))
+    .catch(err => console.log(err));
+};
 
 const updateStaff = db => (req, res) => {};
 
