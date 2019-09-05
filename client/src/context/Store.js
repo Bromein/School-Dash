@@ -9,18 +9,11 @@ export default props => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const [staff, setStaff] = useState([]);
-  const [budget, setBudget] = useState(0);
+  const [budget, setBudget] = useState(
+    "Please add a budget to enable tracking"
+  );
   const [news, setNews] = useState({});
-  // const reducer = (state, action) => {
-  //   switch (action.type) {
-  //     case "ADD_STAFF":
-  //       return { ...state, }
-  //   }
-  // }
-
-  // const staffContext = {
-  //   staff: []
-  // }
+  const [quote, setQuote] = useState({});
 
   const stateContext = {
     sideBar,
@@ -36,7 +29,9 @@ export default props => {
     budget,
     setBudget,
     news,
-    setNews
+    setNews,
+    quote,
+    setQuote
   };
   return <CTX.Provider value={stateContext}>{props.children}</CTX.Provider>;
 };

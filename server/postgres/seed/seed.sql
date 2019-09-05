@@ -11,7 +11,8 @@ INSERT into staff (author_id, staff_name, staff_position, staff_salary, hire_dat
 (1, 'Kazuhira Miller', 'Field Instructor', 135000, '2013-09-05'),
 (1, 'Tretij Rebenok', 'VP Of Intel Division', 180000, '2013-07-04'),
 (1, 'Naomi Hunter', 'R&D Assistant', 180000, '2013-07-04'),
-(1, 'Richard Ames', 'SVP of Intel Division', 180000, '2013-07-04');
+(1, 'Richard Ames', 'SVP of Intel Division', 180000, '2013-07-04'),
+(1, 'Jack ''Raiden'' ', 'Company Mascot', 95000, '2006-03-04');
 
 INSERT into quotes (content, author) values
 ('Your limitation is only your imagination', 'DashR'),

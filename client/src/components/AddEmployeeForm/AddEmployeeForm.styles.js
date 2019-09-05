@@ -21,11 +21,11 @@ export const EmployeeForm = styled.div`
     height: 3rem;
     outline: none;
     padding: 2rem;
-    transition: width 0.2s ease-in-out;
-    width: 90%;
+    transition: height 0.2s ease-in-out;
+    width: 100%;
 
     &:focus {
-      width: 100%;
+      height: 5rem;
     }
   }
 
@@ -40,6 +40,7 @@ export const EmployeeForm = styled.div`
     width: 90%;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    align-self: center;
 
     &:hover {
       background: ${props => props.theme.accentRed};

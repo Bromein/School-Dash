@@ -7,28 +7,28 @@ import { CTX } from "../context/Store";
 import MonthlySalaryCosts from "../components/MonthlySalaryCosts/MonthlySalaryCosts";
 import Spinner from "../components/Spinner/Spinner";
 
-const Dashboard = ({ match }) => {
-  const { staff, sideBar, news, user } = React.useContext(CTX);
-
-  console.log("news", news);
+const Dashboard = ({ match, history }) => {
+  const { staff, sideBar, quote, budget } = React.useContext(CTX);
+  console.log(budget);
   return (
-    <StyledDashPage sidebar={sideBar}>
+    <StyledDashPage
+      style={{ gridTemplateRows: "3rem .5fr 1fr 1fr" }}
+      sidebar={sideBar}
+    >
       <BreadCrumb>Home{match.path}</BreadCrumb>
 
-      {news && (
-        <Card
-          onClick={() => {}}
-          full
-          header="Top News"
-          footer={news && news.author}
-        >
-          {news ? (
+      {quote && (
+        <Card onClick={() => {}} full header="Quote of the Day">
+          {quote ? (
             <div
               style={{
-                textAlign: "center"
+                textAlign: "center",
+                fontSize: "3rem",
+                fontFamily: "OpenSansCondensed",
+                letterSpacing: ".1rem"
               }}
             >
-              {news.content}
+              {quote.content}
             </div>
           ) : (
             <Spinner />
@@ -37,7 +37,14 @@ const Dashboard = ({ match }) => {
       )}
       <MonthlySalaryCosts half />
       {staff.length > 0 && (
-        <Card quarter money stats header="Staff stats">
+        <Card
+          onClick={() => history.push("/staff")}
+          quarter
+          money
+          stats
+          header="Staff stats"
+          style={{ cursor: "pointer" }}
+        >
           <div className="legend">
             <span>Hire Date</span>
             <span>Employee</span>
@@ -45,18 +52,19 @@ const Dashboard = ({ match }) => {
           </div>
           {staff.length &&
             staff.slice(0, 5).map(person => (
-              <>
-                <div className="employee-breakdown" key={person.id}>
-                  <span className="hire-date">{person.hire_date}</span>
-                  <span>{person.staff_name}</span>
-                  <span>${person.staff_salary / 1000}k</span>
-                </div>
-              </>
+              <div className="employee-breakdown" key={person.id}>
+                <span className="hire-date">{person.hire_date}</span>
+                <span>{person.staff_name}</span>
+                <span>${person.staff_salary / 1000}k</span>
+              </div>
             ))}
         </Card>
       )}
 
-      <Card header="Current Budget">{user.budget}</Card>
+      <Card header="Current Budget">{"HEHE"}</Card>
+      <Card full header="Monthly Focus">
+        FOCUS
+      </Card>
     </StyledDashPage>
   );
 };

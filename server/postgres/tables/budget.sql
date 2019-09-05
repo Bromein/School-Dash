@@ -5,6 +5,7 @@ CREATE TABLE budget (
   author_id SMALLINT NOT NULL,
   budget BIGINT NOT NULL,
 
+
 );
 
 COMMIT;

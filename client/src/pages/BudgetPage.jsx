@@ -7,10 +7,11 @@ import {
   StyledBudgetPage
 } from "./BudgetPage/BudgetPage.styles";
 import Card from "../components/Card/Card";
+import { BreadCrumb } from "../styles/BreadCrumb";
 
 import { CTX } from "../context/Store";
 
-const BudgetPage = ({ history }) => {
+const BudgetPage = ({ history, match }) => {
   const { sideBar, user } = React.useContext(CTX);
 
   const handleRender = () => {
@@ -40,6 +41,11 @@ const BudgetPage = ({ history }) => {
     }
   };
 
-  return <StyledDashPage sidebar={sideBar}>{handleRender()}</StyledDashPage>;
+  return (
+    <StyledDashPage sidebar={sideBar}>
+      <BreadCrumb>Home{match.path}</BreadCrumb>
+      {handleRender()}
+    </StyledDashPage>
+  );
 };
 export default BudgetPage;

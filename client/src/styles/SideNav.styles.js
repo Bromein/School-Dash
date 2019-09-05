@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SideNavContainer = styled.aside`
-  background-color: ${props => props.theme.backgroundColor};
+  background-color: ${props => props.theme.cardColor};
   grid-column: 1 / 2;
   min-height: 100vh;
   color: ${props => props.theme.textColor};

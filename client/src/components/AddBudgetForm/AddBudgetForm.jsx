@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { mapIndexToMonth } from "../../utils/helpers";
 import { CTX } from "../../context/Store";
-
+import { StyledBudgetForm } from "./AddBudgetForm.styles";
 const AddBudgetForm = ({ userId }) => {
   const [value, setValue] = useState(0);
   const { setBudget } = useContext(CTX);
@@ -26,11 +26,11 @@ const AddBudgetForm = ({ userId }) => {
       .then(data => setBudget(data[0]));
   };
   return (
-    <div>
+    <StyledBudgetForm>
       <h1>{mapIndexToMonth()}'s Budget</h1>
-      <input type="text" onChange={handleChange} />
-      <div onClick={handleSubmit}>submit</div>
-    </div>
+      <input type="number" onChange={handleChange} />
+      <button onClick={handleSubmit}>submit</button>
+    </StyledBudgetForm>
   );
 };
 export default AddBudgetForm;

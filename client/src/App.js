@@ -21,11 +21,13 @@ import { GridWrap } from "./styles/App.styles";
 import SignUp from "./pages/SignUp/SignUp";
 
 function App(props) {
-  const { user, staff, setStaff, news, setNews } = useContext(CTX);
+  const { user, staff, setStaff, news, setNews, quote, setQuote } = useContext(
+    CTX
+  );
 
   useEffect(() => {
-    if (user.id) {
-      const fetchStaffForCurrentUser = async id => {
+    const fetchStaffForCurrentUser = async id => {
+      if (user.id) {
         try {
           const token = sessionStorage.getItem("token");
           const data = await fetch(`/api/staff/${id}`, {
@@ -40,27 +42,27 @@ function App(props) {
         } catch (err) {
           console.log(err);
         }
-      };
-      fetchStaffForCurrentUser(user.id);
-      const fetchNews = async () => {
-        if (!news.source)
-          try {
-            const newsArticles = await fetch(
-              `https://newsapi.org/v2/top-headlines?country=us&apiKey=${
-                process.env.REACT_APP_NEWS_API
-              }&category=general&pageSize=1`
-            );
-            const newsData = await newsArticles.json();
-            if (newsData.status) {
-              setNews(newsData.articles[0]);
-            }
-          } catch (err) {
-            console.log(err);
-          }
-      };
-      fetchNews();
-    }
-  }, [user, staff.length, setStaff]);
+      }
+    };
+    fetchStaffForCurrentUser(user.id);
+
+    const fetchQuote = async () => {
+      if (!quote.id) {
+        try {
+          const randomQuote = await fetch("/api/quote", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+          });
+          const quoteData = await randomQuote.json();
+
+          setQuote(quoteData);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    };
+    fetchQuote();
+  }, [user, staff.length, setStaff, quote, setQuote]);
 
   return (
     <ThemeProvider theme={theme}>

@@ -10,6 +10,7 @@ const signin = require("./controllers/signin");
 const signup = require("./controllers/signup");
 const profile = require("./controllers/profile");
 const staff = require("./controllers/staff");
+const quote = require("./controllers/quote");
 const auth = require("./middleware/auth");
 
 app.use(bodyParser.json());
@@ -25,6 +26,7 @@ const db = knex({
 // open endpoints
 app.post("/api/login", signin.authorizeLogin(db, bcrypt));
 app.post("/api/signup", signup.handleSignUp(db, bcrypt));
+app.get("/api/quote", quote.handleGetQuote(db));
 
 //gated endpoints
 app.post("/api/staff", auth.requireAuth, staff.addStaff(db));

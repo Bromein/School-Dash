@@ -37,7 +37,9 @@ const WeatherPage = ({ match }) => {
         <>
           {location.daily.data.map((day, index) => (
             <WeatherCard key={index}>
-              <DayTitle>{convertEpoch(day.time)}</DayTitle>
+              <DayTitle>
+                {index === 0 ? "Today" : convertEpoch(day.time)}
+              </DayTitle>
               <Icon className="cardIcon" name={day.icon} />
               <span>
                 <WeatherSummary>{day.summary}</WeatherSummary>

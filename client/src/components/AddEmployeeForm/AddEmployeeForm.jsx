@@ -45,6 +45,7 @@ const AddEmployeeForm = () => {
           value={employeeDetails.staffName}
           type="text"
           name="staffName"
+          autoComplete="off"
         />
       </span>
 
@@ -55,6 +56,7 @@ const AddEmployeeForm = () => {
           value={employeeDetails.staffPosition}
           type="text"
           name="staffPosition"
+          autoComplete="off"
         />
       </span>
 
@@ -65,6 +67,7 @@ const AddEmployeeForm = () => {
           value={employeeDetails.hireDate}
           type="date"
           name="hireDate"
+          autoComplete="off"
         />
       </span>
 
@@ -75,6 +78,7 @@ const AddEmployeeForm = () => {
           value={employeeDetails.staffSalary}
           type="number"
           name="staffSalary"
+          autoComplete="off"
         />
       </span>
       <button onClick={handleSubmit}>Add</button>
